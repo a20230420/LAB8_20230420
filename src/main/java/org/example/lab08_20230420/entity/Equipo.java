@@ -39,7 +39,7 @@ public class Equipo {
     @Column(name = "telefono_contacto")
     private String telefonoContacto;
 
-    // 1 = Activo, 0 = Inactivo
+    // En este caso será: 1 = ACTIVO y 0 = INACTIVO
     @Column(name = "estado")
     private Integer estado;
 }

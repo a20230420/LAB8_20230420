@@ -11,5 +11,5 @@ public interface EquipoRepository extends JpaRepository<Equipo, Integer> {
     boolean existsByTag(String tag);
     boolean existsByNombreAndIdEquipoNot(String nombre, Integer idEquipo);
     boolean existsByTagAndIdEquipoNot(String tag, Integer idEquipo);
-    Optional<org.example.lab08_20230420.entity.Equipo> findByTag(String tag);
+    Optional<Equipo> findByTag(String tag);
 }
