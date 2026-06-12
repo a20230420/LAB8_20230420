@@ -149,6 +149,30 @@ public class EquipoController {
         return ResponseEntity.ok(response);
     }
 
-    
+    // PREGUNTA 3
+
+
+    // PREGUNTA 4 - (LA 3 HACIA QUE NO COMPILE ASI QUE NO LA PUSE xd :c)
+    @DeleteMapping("/{id}")
+    public ResponseEntity<HashMap<String, Object>> desactivar(
+            @PathVariable Integer id) {
+
+        HashMap<String, Object> response = new HashMap<>();
+
+        Optional<Equipo> opt = equipoRepository.findById(id);
+        if (opt.isEmpty()) {
+            response.put("resultado", "error");
+            response.put("mensaje", "No se encontró un equipo con id: " + id);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+        }
+
+        Equipo equipo = opt.get();
+        equipo.setEstado(0); // ACÁ SE DESACTIVA
+        equipoRepository.save(equipo);
+
+        response.put("resultado", "ok");
+        response.put("mensaje", "Equipo desactivado correctamente");
+        return ResponseEntity.ok(response);
+    }
 
 }
