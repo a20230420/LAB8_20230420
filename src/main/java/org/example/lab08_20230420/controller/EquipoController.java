@@ -149,4 +149,6 @@ public class EquipoController {
         return ResponseEntity.ok(response);
     }
 
+    
+
 }
